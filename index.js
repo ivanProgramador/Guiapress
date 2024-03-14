@@ -2,6 +2,8 @@ const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
 const connection = require("./database/database");
+const categoriesController = require("./categories/categoriesController");
+const articlesController = require("./articles/articlesController");
 
 //view engine 
 app.set('view engine','ejs');
@@ -22,6 +24,9 @@ connection.authenticate().then(()=>{
 });
 
 
+
+app.use("/",categoriesController);
+app.use("/",articlesController);
 
 
 app.get("/",(req,res)=>{
