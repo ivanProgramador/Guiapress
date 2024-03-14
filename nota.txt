@@ -1,0 +1,5 @@
+A estrategia de relaciomanteo utilizada nesse projeto
+será de um para muitos 
+
+Uma categoria pode ter varios artigos 
+mas um artigo só pode pertencer a uma categoria  
