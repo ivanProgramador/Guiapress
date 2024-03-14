@@ -7,6 +7,17 @@ Um Artigo pertence a uma Categoria
 assim como uma Categoria pertence a um Artigo
 
 Eu não lembro do termo técnico desse tipo de relacionamento agora
-por emquanto vou chamar de relaciomento de mão dupla porque
+por enquanto vou chamar de relaciomento de mão dupla porque
 porque eu vou precisar fazer consulta dos dois lados futuramente 
-nesse projeto  
+nesse projeto.
+
+Qual é a utilidade dos relacionamentos entre tabelas ?
+
+A resposta é performance quando um Artigo esta ligadoa auma categoria
+se eu fizer uma consulta onde eu precise da lista artigo com base na categoria
+o relaociomeno ja vai trazer tudo em uma consulta só, evitando mais processamento
+com duas consultas. 
+
+
+
+
