@@ -2,9 +2,7 @@ const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
 const connection = require("./database/database");
-const categoriesController = require("./categories/categoriesController");
 const articlesController = require("./articles/articlesController");
-
 const categoriesController = require("./categories/categoriesController");
 
 //view engine 
