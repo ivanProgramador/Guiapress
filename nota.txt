@@ -1,5 +1,12 @@
 A estrategia de relaciomanteo utilizada nesse projeto
 será de um para muitos 
 
-Uma categoria pode ter varios artigos 
-mas um artigo só pode pertencer a uma categoria  
+A estrategia de relacionamento desse projeto 
+
+Um Artigo pertence a uma Categoria 
+assim como uma Categoria pertence a um Artigo
+
+Eu não lembro do termo técnico desse tipo de relacionamento agora
+por emquanto vou chamar de relaciomento de mão dupla porque
+porque eu vou precisar fazer consulta dos dois lados futuramente 
+nesse projeto  
