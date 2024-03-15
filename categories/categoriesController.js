@@ -9,6 +9,7 @@ router.get("/admin/categories/new",(req,res)=>{
 
     res.render("admin/categories/new");
     
+    
 });
 
 //rota para a tabela de categorias
