@@ -11,6 +11,14 @@ router.get("/admin/categories/new",(req,res)=>{
     
 });
 
+//rota para a tabela de categorias
+
+router.get("/admin/categories",(req,res)=>{
+    
+    res.render("admin/categories/index");
+
+})
+
 
 //rota de salvar
 router.post("/categories/save",(req,res)=>{
