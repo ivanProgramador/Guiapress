@@ -66,6 +66,7 @@ router.post("/categories/delete",(req,res)=>{
 });
 
 
+//rota para o formulario de edição 
 
 router.get("/admin/categories/edit/:id",(req,res)=>{
     var id = req.params.id;
@@ -87,6 +88,26 @@ router.get("/admin/categories/edit/:id",(req,res)=>{
         res.redirect("/admin/categories");
     })
 })
+
+//Rota que grava a edição 
+
+router.post("/categories/update",(req,res)=>{
+
+    var id = req.body.id;
+    var title = req.body.title;
+
+    Category.update({title:title, slug:slugify(title)},{
+        where:{
+            id:id
+        }
+    }).then(()=>{
+        res.redirect("/admin/categories");
+    })
+
+});
+
+
+
 
 
 module.exports = router;
