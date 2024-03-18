@@ -16,7 +16,10 @@ router.get("/admin/articles/new",(req,res)=>{
 });
 
 router.get("/admin/articles",(req,res)=>{
-    res.send("Rota de artigos")
+    
+   
+        res.render("admin/articles/index");
+   
 });
 
 router.post("/articles/save",(req,res)=>{
