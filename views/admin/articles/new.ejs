@@ -18,6 +18,14 @@
 
                 </textarea>
 
+                <select name="category" class="form-control mt-4">
+                    <% categories.forEach(category=>{ %>
+                        <option value="<%= category.id %>"><%= category.title %> </option>
+                    <% }) %>
+
+
+                </select>
+
                 <button class="btn btn-success mt-3" type="submit">Cadastrar</button>
             </form>
         </div>
