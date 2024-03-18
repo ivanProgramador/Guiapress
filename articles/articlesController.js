@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const Category = require("../categories/Category");
 const { default: slugify } = require("slugify");
+const Article = require("../articles/Article");
 
 
 router.get("/admin/articles/new",(req,res)=>{
@@ -29,6 +30,8 @@ router.post("/articles/save",(req,res)=>{
         slug:slugify(title),
         body: body,
         categoryId: category
+    }).then(()=>{
+        res.redirect("/admin/articles");
     })
 
     
