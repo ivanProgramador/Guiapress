@@ -1,0 +1,70 @@
+<%- include('../../partials/header.ejs') -%>
+<%- include('../../partials/navbar.ejs') -%>
+
+<div class="container">
+    <hr>
+    <div class="card">
+        
+        <div class="card-header">
+            <h2 class="card-title">Editar artigo</h2>
+        </div>
+        <div class="card-body">
+            <form class="form" action="/articles/save" method="post">
+
+
+                <input class="form-control mb-3" type="text" name="title" placeholder="defina o titulo do artigo">
+
+                <textarea class="form-control" name="body" placeholder="teste" id="article">
+
+                </textarea>
+
+                <select name="category" class="form-control mt-4">
+                    <% categories.forEach(category=>{ %>
+                        <option value="<%= category.id %>"><%= category.title %> </option>
+                    <% }) %>
+
+
+                </select>
+
+                <button class="btn btn-success mt-3" type="submit">Atualizar</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+<%- include('../../partials/footer.ejs') -%>
+
+<script src="/tinymce/tinymce.min.js"></script>
+<script>
+
+    // link para baixar o tinymce https://www.tiny.cloud/get-tiny/self-hosted/
+    //por algum motivo quando eu coloco ele em portugues alguns recurosos deixam de funcionar 
+    //então eu vou deixar ele em inglés pra manter os recursos 
+
+    tinymce.init({
+        selector: "#article",
+        plugins:[
+            "lists",
+            "advlist",
+            "image",
+            "print",
+            "preview",
+            "hr",
+            "searchreplace",
+            "wordcount",
+            "fullscreen",
+            "insertdatetime",
+            "media",
+            "save",
+            "table",
+            "paste",
+            "emoticons"
+
+        ]
+    }
+    
+    )
+
+</script>
