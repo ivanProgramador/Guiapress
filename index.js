@@ -48,7 +48,8 @@ app.get("/:slug",(req,res)=>{
 
     var slug = req.params.slug;
 
-    Article.findOne({
+    Article.findOne({  
+
         where:{
             slug:slug
         }
@@ -59,6 +60,7 @@ app.get("/:slug",(req,res)=>{
             res.redirect("/");
         }
     }).catch(err=>{
+        
         res.redirect("/");
     })
 })
