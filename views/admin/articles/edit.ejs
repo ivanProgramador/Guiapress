@@ -20,7 +20,19 @@
 
                 <select name="category" class="form-control mt-4">
                     <% categories.forEach(category=>{ %>
-                        <option value="<%= category.id %>"><%= category.title %> </option>
+
+                        <% if(category.id == article.categoryId){ %>
+
+                            <option value="<%= category.id %>" selected><%= category.title %> </option>
+
+                        <% }else{ %>
+
+                            <option value="<%= category.id %>"><%= category.title %> </option>
+
+                        <% } %>
+
+
+                      
                     <% }) %>
 
 
@@ -76,7 +88,7 @@
         // e depois eu uso o atributo ->    init_instance_callback:
         //parea executar uma função anonima que pega o conteudo da div content junto com o html dela 
         // e joga tudo pra dentro do textarea formatado usando o id dele 
-        
+
         init_instance_callback: ()=>{
             tinymce.get("article").setContent($("#content").html())
         }
