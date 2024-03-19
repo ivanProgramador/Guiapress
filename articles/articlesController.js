@@ -16,8 +16,27 @@ router.get("/admin/articles/new",(req,res)=>{
 });
 
 router.get("/admin/articles",(req,res)=>{
+    /*
+     Existe um problema na view onde ao inves de mostrar 
+     o titulo da categoria ao qual o artigo pertence
+     ele mostra somente a numeração do id 
+     para reoslver isso eu vou usar a relação que exite entre
+     artigo e categoria
 
-    Article.findAll().then(articles=>{
+     Dentro da função finAll eu consigo pediro pra ele 
+     incluir o model category na busca então atraves do id 
+     que liga o artigo a cetegoria ele consegue consultar todos os dados 
+     da categoria a qual o artigo esta ligado 
+     
+     Assim eu posso trazer qualquer rpopridade dela inclusive
+     o titulo pra mostrar na view dessa foma 
+
+     <td><%= article.category.title %></td>
+
+    */
+    Article.findAll({
+        include:[{model:Category}]
+    }).then(articles=>{
         res.render("admin/articles/index",{articles:articles});
 
     })
