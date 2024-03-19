@@ -16,9 +16,14 @@ router.get("/admin/articles/new",(req,res)=>{
 });
 
 router.get("/admin/articles",(req,res)=>{
+
+    Article.findAll().then(articles=>{
+        res.render("admin/articles/index",{articles:articles});
+
+    })
     
    
-        res.render("admin/articles/index");
+       
    
 });
 
