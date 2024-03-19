@@ -34,6 +34,12 @@
 
 
 
+<div id="content" style="display: none;">
+    <%- article.body %>
+</div>
+
+
+
 <%- include('../../partials/footer.ejs') -%>
 
 <script src="/tinymce/tinymce.min.js"></script>
@@ -62,7 +68,18 @@
             "paste",
             "emoticons"
 
-        ]
+        ],
+        //essa função serve para carregar um função de call back cada vez que o textarea
+        //for carregado como eu preciso que ela coloque o body que vem da base de dados 
+        //dentro do textarea ja formatado primirro eu fiz uma div que não aprece na pagina 
+        //e preeencho ela com os dados do body do artigo
+        // e depois eu uso o atributo ->    init_instance_callback:
+        //parea executar uma função anonima que pega o conteudo da div content junto com o html dela 
+        // e joga tudo pra dentro do textarea formatado usando o id dele 
+        
+        init_instance_callback: ()=>{
+            tinymce.get("article").setContent($("#content").html())
+        }
     }
     
     )
