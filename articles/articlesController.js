@@ -155,7 +155,7 @@ router.get("/articles/page/:num",(req,res)=>{
     //quantidade de artigos que ela vai mostrar
     //na proxima pagina
 
-        offset = parseInt(page) * 4;
+        offset = (parseInt(page) - 1) * 4;
     }
 
     Article.findAndCountAll({
