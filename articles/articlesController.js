@@ -184,9 +184,11 @@ router.get("/articles/page/:num",(req,res)=>{
 
         }
         //aqui o objeto result recebe os dois valores finais da logica 
-        //a variavel next e os artigos
+        //a variavel next e os artigose o numero da pagina 
+        //que aciona a logica da paginação
 
         var result = {
+            page: parseInt(page),
             next: next,
             articles:articles
         }
