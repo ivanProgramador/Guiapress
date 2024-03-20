@@ -127,6 +127,74 @@ router.post("/articles/update",(req,res)=>{
 });
 
 
+/*paginação
+
+  o limit diz quantos artigos eu quero ver em cada pagina 
+  o ofsset navega entre os artigos 
+  por exemplo se eu coloco um limite de 4 artigos por pagina
+  quando o valor do offset for 1 os artigos que vão aparecer 
+  serão 1234 quando o valor do offset for 2 os artigos que vão aparecer 
+  são 5678 e quando o valor do offset for 3 9 10 11 12
+  no caso ele navega entre os artigos mostrados na pagina 
+
+
+ */ 
+
+router.get("/articles/page/:num",(req,res)=>{
+
+    var page = req.params.num;
+    var offset = 0; // ofsset 0 mostra os 4 primeiros artigos 
+    
+    // se a varivel page não for um numero ou for igual a 1 o offset prmanece 0 mostrando os 4 primieros artigos  
+    if(isNaN(page) || page == 1){
+        var offset = 0;
+
+    }else{
+
+    //se não o offset vai receber o valor da pagina multiplicado por 4 que e a 
+    //quantidade de artigos que ela vai mostrar
+    //na proxima pagina
+
+        offset = parseInt(page) * 4;
+    }
+
+    Article.findAndCountAll({
+
+        limit:4,
+        offset: offset
+
+    }).then(articles=>{
+    
+        var next; //enquando tiver pagina para exibir essa varivel fica true 
+
+        // aqui eu somo 4 a valor da varivel offset o articles.count me traz
+        //a quantidade de artigos que existem na base de dados 
+        // ai eu comparo se offset mais 4 for maior ou igual ao numero total de artigos 
+        //regitrados então não tem mais artigos pra mostrar então o next fica falso  
+
+        if(offset + 4 >= articles.count){
+
+            next = false;
+
+        }else{
+            //se sim fica true e ainda tem dados pra mais uma pagina
+
+            next = true;
+
+        }
+        //aqui o objeto result recebe os dois valores finais da logica 
+        //a variavel next e os artigos
+
+        var result = {
+            next: next,
+            articles:articles
+        }
+        //e por fim o retorno em json
+        res.json(result);
+    })
+
+})
+
 
 
 
