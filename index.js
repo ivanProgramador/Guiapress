@@ -7,7 +7,7 @@ const categoriesController = require("./categories/categoriesController");
 const Article = require("./articles/Article");
 const Category = require("./categories/Category");
 const User =  require("./user/User");
-const userController = require("./user/userController");
+const usersController = require("./user/usersController");
 
 //view engine 
 app.set('view engine','ejs');
@@ -32,7 +32,7 @@ connection.authenticate().then(()=>{
 
 app.use("/",categoriesController);
 app.use("/",articlesController);
-app.use("/",userController);
+app.use("/",usersController);
 
 
 

@@ -1,6 +1,7 @@
 const express =require("express");
 const router = express.Router();
 const User = require("./User");
+const bcrypt = require("bcryptjs");
 
 //rotas de formulario
 
@@ -37,9 +38,21 @@ router.post("/user/save",(req,res)=>{
     
     var email = req.body.email;
     var password = req.body.password;
-
-    User.create({email:email,password:password}).then(()=>{
+   
+    //usando o salt pra gerar uma hash auxiliar
+    var salt = bcrypt.genSaltSync(10);
+    // passado apra variavel hash a senha conevrtida mais o salt
+    var hash = bcrypt.hashSync(password,salt);
+    
+    
+    User.create({
+        email:email,
+        password:hash
+    }).then(()=>{
         res.redirect("/admin/users");
+    }).catch(err =>{
+        res.redirect("/admin/users");
+
     })
 });
 

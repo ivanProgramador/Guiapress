@@ -1,0 +1,7 @@
+Uma senha nunca deve ser salva extamente como é digitada no campo 
+de senha, por questões de segurança.
+
+1 - Ninguem além do proprio usuário pode saber a senha 
+
+
+ 
