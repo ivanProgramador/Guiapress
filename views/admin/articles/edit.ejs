@@ -9,10 +9,12 @@
             <h2 class="card-title">Editar artigo</h2>
         </div>
         <div class="card-body">
-            <form class="form" action="/articles/save" method="post">
+            <form class="form" action="/articles/update" method="post">
+                
+                <input type="hidden" name="id" value="<%= article.id %>">
 
 
-                <input class="form-control mb-3" type="text" name="title" placeholder="defina o titulo do artigo">
+                <input value="<%= article.title %>" class="form-control mb-3" type="text" name="title" placeholder="defina o titulo do artigo">
 
                 <textarea class="form-control" name="body" placeholder="teste" id="article">
 
