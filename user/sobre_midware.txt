@@ -1,0 +1,10 @@
+Midware é uma função que age entre a requisição e a respota 
+por exemplo uma função de monitoramento de requisições tem que ficar 
+entra a requição e a resposta então toda vez que o usurio requisita uma 
+rota essa função é acionada e se o servidor responder ela tambem é acionada 
+porque ela fica no meio do caminho dos dois.
+
+noemalmente esse tipo de função é usada para autenticar acessos
+ou para monitorar as rotas.  
+
+requisição -> midware <- resposta 
