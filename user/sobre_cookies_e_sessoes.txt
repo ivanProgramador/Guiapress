@@ -1,0 +1,16 @@
+Cookies 
+- São arquivos de texto simples que podem variar depedendo do site 
+  tem sites que guardam nos cookies o endereço de ip do usuario as 
+  preferencias de configuração como a cor da pagina, isso pode ajudar 
+  ao reposavel pelo site ter infrmações como a quantidade de vezes que 
+  o cliente entrou no site e suas abas favoritas.
+
+Sessões
+- As sessões dependem dos cookies porém funcionan de forma diferente 
+  quando um cliente inicia uma cesão em uma pagina do sistema o servidor
+  gera um id para a cessão associado aos dados do cliente, cada pagina que
+  ele acessa dentro do sistema o coookie e consultado pelo servidor que 
+  usa esse id pra altenticar o cliente durante a sessão de acesso. ou seja 
+  os dado do cliente nãoficam nos cookies e sim no servidor, se por acaso alguem 
+  ver os cookies do cliente não vai ter acesso as informações dele so vai ver o 
+  numero do id da antiga cessão.    
