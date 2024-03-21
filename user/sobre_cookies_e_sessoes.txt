@@ -13,4 +13,12 @@ Sessões
   usa esse id pra altenticar o cliente durante a sessão de acesso. ou seja 
   os dado do cliente nãoficam nos cookies e sim no servidor, se por acaso alguem 
   ver os cookies do cliente não vai ter acesso as informações dele so vai ver o 
-  numero do id da antiga cessão.    
+  numero do id da antiga cessão.
+
+Sequencia de sessão
+- Primeiro o cliente faz a requisição pra rota, quando ele faz a requisição
+  ele preeche os dados da sessão. apartir dai todas as outras rotas que ele acessar 
+  vai ter uma função leitora de cessão que vai checar se os dados da cessão dele 
+  permitem acesso a rota que ele esta requisitando é assim que o sistema sabe
+  quem é administrador e quem é um usuario normal. 
+
