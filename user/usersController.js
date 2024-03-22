@@ -2,14 +2,15 @@ const express =require("express");
 const router = express.Router();
 const User = require("./User");
 const bcrypt = require("bcryptjs");
+const adminAuth = require("../midwares/adminAuth");
 
 //rotas de formulario
 
-router.get("/admin/users/new",(req,res)=>{
+router.get("/admin/users/new",adminAuth,(req,res)=>{
     res.render("admin/users/new");
 });
 
-router.get("/admin/users",(req,res)=>{
+router.get("/admin/users",adminAuth,(req,res)=>{
     User.findAll().then(users=>{
         res.render("admin/users/index",{users: users});
 
@@ -18,7 +19,7 @@ router.get("/admin/users",(req,res)=>{
 
 })
 
-router.get("/admin/user/edit/:id",(req,res)=>{
+router.get("/admin/user/edit/:id",adminAuth,(req,res)=>{
 
     var id = req.params.id;
     User.findByPk(id).then(user=>{
@@ -122,10 +123,11 @@ router.post("/authenticate",(req,res)=>{
                     id: user.id,
                     email: user.email
                 }
-                res.json(req.session.user);
+                res.redirect("/admin/articles");
+                
 
             }else{
-                res.redirect("/login");
+                res.redirect("/admin/articles");
             }
 
 
